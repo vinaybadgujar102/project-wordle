@@ -1,4 +1,4 @@
-# Word Game
+# Word Game (ASSIGNMENT COMPLETE)
 
 ## Joy of React, Project I
 
