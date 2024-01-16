@@ -1,16 +1,17 @@
 import React from "react";
 
-const Input = ({ name, label, onChange, placeholder, value, error }) => {
-  const [input, setInput] = React.useState("");
+const GuessInput = ({ handleSubmitGuess }) => {
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    if (input.length !== 5) {
+    if (tentativeGuess.length !== 5) {
+      alert("Please enter a 5 letter word");
       return;
     }
-    console.log({ input });
+    handleSubmitGuess(tentativeGuess);
 
-    setInput("");
+    setTentativeGuess("");
   };
 
   return (
@@ -23,10 +24,10 @@ const Input = ({ name, label, onChange, placeholder, value, error }) => {
         maxLength={5}
         id="guess-input"
         type="text"
-        value={input}
+        value={tentativeGuess}
         onChange={(e) => {
           const nextInput = e.target.value.toUpperCase();
-          setInput(nextInput);
+          setTentativeGuess(nextInput);
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -38,4 +39,4 @@ const Input = ({ name, label, onChange, placeholder, value, error }) => {
   );
 };
 
-export default Input;
+export default GuessInput;
